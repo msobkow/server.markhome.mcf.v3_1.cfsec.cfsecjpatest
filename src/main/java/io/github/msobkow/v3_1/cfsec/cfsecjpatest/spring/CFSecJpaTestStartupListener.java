@@ -57,6 +57,8 @@ public class CFSecJpaTestStartupListener {
 
 		ICFSecSchema.getBackingCFSec().wireTableTableInstances();
 
+		ICFSecSchema.getBackingCFSec().bootstrapSchema();
+
         System.err.println("Executing testCFSec.performTests()");
         try {
             String response = testCFSec.performTests(null);
