@@ -40,6 +40,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 import java.util.concurrent.atomic.*;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -67,11 +68,19 @@ public class CFSecJpaTestStartupListener implements ApplicationContextAware {
 		return( arApplicationContext.get() );
 	}
 
+
+	@Autowired
+	@Qualifier("cfsec31JpaHooksSchema")
+	private CFSecJpaHooksSchema cfsecJpaHooksSchema;
+
 	@EventListener
     public void onApplicationReady(ApplicationReadyEvent event) {
         System.err.println("CFSecJpaTest StartupListener tests beginning...");
 
 		ICFSecSchema.getBackingCFSec().setApplicationContext(getApplicationContext());
+
+		((CFSecJpaSchema)ICFSecSchema.getBackingCFSec()).setJpaHooksSchema(cfsecJpaHooksSchema);
+
 
 		ICFSecSchema.getBackingCFSec().wireTableTableInstances();
 
