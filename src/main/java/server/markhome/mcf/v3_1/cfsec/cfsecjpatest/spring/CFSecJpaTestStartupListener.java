@@ -2,7 +2,7 @@
 // Description: Spring StartupListener for the JpaTest program
 
 /*
- *	io.github.msobkow.CFSec
+ *	server.markhome.mcf.CFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
@@ -33,7 +33,7 @@
  *	
  */
 
-package io.github.msobkow.v3_1.cfsec.cfsecjpatest.spring;
+package server.markhome.mcf.v3_1.cfsec.cfsecjpatest.spring;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +45,10 @@ import java.util.concurrent.atomic.*;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import io.github.msobkow.v3_1.cflib.*;
-import io.github.msobkow.v3_1.cflib.dbutil.*;
-import io.github.msobkow.v3_1.cfsec.cfsec.*;
-import io.github.msobkow.v3_1.cfsec.cfsec.jpa.*;
+import server.markhome.mcf.v3_1.cflib.*;
+import server.markhome.mcf.v3_1.cflib.dbutil.*;
+import server.markhome.mcf.v3_1.cfsec.cfsec.*;
+import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 @Component
 public class CFSecJpaTestStartupListener implements ApplicationContextAware {
